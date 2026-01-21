@@ -1,6 +1,5 @@
 body {
   margin: 0;
-  height: 150%;
 }
 
 .no-anim * {
@@ -10,7 +9,8 @@ body {
 .no-anim h1,
 .no-anim h2,
 .no-anim h3,
-.no-anim .icon {
+.no-anim .icon,
+.no-anim .navicon {
   opacity: 1;
   transform: none;
 }
@@ -21,14 +21,14 @@ body {
 }
 
 h1 {
-  font-family: "Pacifico", cursive;
+  font-family: "Share Tech", sans-serif;
   text-align: center;
-  font-size: 8em;
+  font-size: 10em;
   font-weight: 400;
   font-style: normal;
   opacity: 0;
   animation: fadeIn 1s ease-in forwards;
-  margin-top: 0.5em;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -38,9 +38,10 @@ h2 {
   font-optical-sizing: auto;
   opacity: 0;
   transform: translateY(120px);
-  animation: fadeUp 1500ms cubic-bezier(.22,.9,.3,1) forwards;
+  animation: fadeUp 1500ms cubic-bezier(0.22, 0.9, 0.3, 1) forwards;
   animation-delay: 1.5s;
-  font-size: 1.8em;
+  font-size: 2em;
+  margin-top: -0.1em;
 }
 
 .body {
@@ -50,7 +51,7 @@ h2 {
 
 .footer {
   grid-area: footer;
-  background-image: linear-gradient(white, #C1E0FE);
+  background-image: linear-gradient(white, #c1e0fe);
 }
 
 .container {
@@ -59,15 +60,15 @@ h2 {
     "header"
     "body"
     "footer";
-  grid-template-rows: 4fr 2fr 1fr;
-  height: 150vh;
+  grid-template-rows: 3fr 2fr 1fr;
+  height: 100vh;
 }
 
 .header {
   color: white;
 }
 
-.main{
+.main {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -78,25 +79,25 @@ h2 {
   font-size: 1.2em;
 }
 
-.section{
+.section {
   display: flex;
   flex-direction: column;
   transition:
-    transform 220ms cubic-bezier(.22,.9,.3,1),
-    box-shadow 220ms cubic-bezier(.22,.9,.3,1);
+    transform 220ms cubic-bezier(0.22, 0.9, 0.3, 1),
+    box-shadow 220ms cubic-bezier(0.22, 0.9, 0.3, 1);
 }
 
-.section:hover{
+.section:hover {
   transform: scale(1.03);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-.icon{
+.icon {
   height: 12em;
   width: 12em;
   opacity: 0;
   transform: translateY(-120px);
-  animation: fadeDown 1500ms cubic-bezier(.22,.9,.3,1) forwards;
+  animation: fadeDown 1500ms cubic-bezier(0.22, 0.9, 0.3, 1) forwards;
   animation-delay: var(--d);
 }
 
@@ -106,10 +107,52 @@ h2 {
   display: block;
 }
 
-h3{
+h3 {
   opacity: 0;
   animation: fadeIn 1.5s ease-in forwards;
   animation-delay: 5s;
+}
+
+.navbar {
+  position: absolute;
+  display: flex;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+}
+
+.navicon {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin-top: 0.5rem;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: -0.5em;
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  animation-delay: 1.5s;
+}
+
+.topbutton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h4 {
+  font-size: 0.7em;
+  font-family: "Zalando Sans SemiExpanded", sans-serif;
+  font-optical-sizing: auto;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity 300ms ease,
+    transform 300ms cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+.topbutton.is-active h4 {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @keyframes fadeDown {
